@@ -22,7 +22,7 @@ vec3 calcFlatNormal(vec3 p){
 void main() {
 	TDCheckDiscard();
 
-	if (any(lessThan(oVert.bc, vec3(0.3333 - oNoiseFactor * 1.3)))) {
+	if (any(lessThan(oVert.bc, vec3(clamp(0.333 - oNoiseFactor*0.8, 0.05, 0.4))))) {
 		vec3 p = oVert.posInWorld.xyz;
 		vec3 n = calcFlatNormal(p);
 

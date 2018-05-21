@@ -9,7 +9,7 @@ out float noiseFactor;
 flat out int cameraIndex;
 
 void main() {
-	noiseFactor = pow(TDPerlinNoise(P * 3. + time * 0.2) * 1.2 * sin(time), 2.);
+	noiseFactor = clamp(TDSimplexNoise(vec3(uv[0].xy*10., time*0.1)), 0., 1.);
 
 	vVert.posInWorld = TDDeform(P);
 	vVert.color = TDInstanceColor(Cd);

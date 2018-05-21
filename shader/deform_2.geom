@@ -53,7 +53,7 @@ void main() {
 	center /= gl_in.length();
 	normal /= gl_in.length();
 
-	center += normal * noiseMean;
+	center += normal * noiseMean * 0.4;
 
 	oNoiseFactor = noiseMean;
     createFace(center, ivec2(0,1));
