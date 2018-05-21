@@ -10,7 +10,7 @@ This scene is dedicated for explanation of how TouchDesigner handles OpenGL vert
 
 ### 2. shader_experiminets
 
-This scene has one `Render TOP` and one `Geometry COMP` and 6 `GLSL MAT`s to attach one another. These shaders shows the idea how we can develop nice complexity in Geometry Shader programming (which means manupulation of the "polygons" stage)
+This scene has one `Render TOP` and one `Geometry COMP` and 6 `GLSL MAT`s to attach one by one. These shaders shows the idea how we can develop nice complexity in Geometry Shader programming (which means manupulation of the "polygons" stage)
 
 * flat_phong: flat & phong shading in FS
 ![flat_phong](./img/flat_phong.jpg)
