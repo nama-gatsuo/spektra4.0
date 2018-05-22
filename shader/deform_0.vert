@@ -5,6 +5,7 @@ out struct Vert {
 	vec4 color;
 	vec3 normalInWorld;
 } vVert;
+
 out float noiseFactor;
 flat out int cameraIndex;
 

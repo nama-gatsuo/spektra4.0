@@ -5,7 +5,7 @@ layout (max_vertices = 27) out;
 struct Vert {
 	vec4 posInWorld;
 	vec4 color;
-    vec3 normalInWorld;
+	vec3 normalInWorld;
 	vec3 bc; // bary centric
 };
 
@@ -39,7 +39,7 @@ void create(in vec3 v1, in vec3 v2, in vec3 v3){
 void sub2(in vec3 v1, in vec3 v2, in vec3 v3){
 
 	vec3 center = (v1 + v2 + v3) / 3.;
-    vec3 n = - normalize(cross(v2-v1, v3-v1)) * oNoiseFactor * .1;
+	vec3 n = - normalize(cross(v2-v1, v3-v1)) * oNoiseFactor * .1;
 
 	create(v1, n + center, v2);
 	create(v2, n + center, v3);
@@ -50,24 +50,24 @@ void sub2(in vec3 v1, in vec3 v2, in vec3 v3){
 void sub1(in vec3 v1, in vec3 v2, in vec3 v3){
 
 	vec3 center = (v1 + v2 + v3) / 3.;
-    vec3 n = - normalize(cross(v2-v1, v3-v1)) * oNoiseFactor * .2;
+	vec3 n = - normalize(cross(v2-v1, v3-v1)) * oNoiseFactor * .2;
 
-    sub2(v1, n + center, v2);
-    sub2(v2, n + center, v3);
-    sub2(v3, n + center, v1);
+	sub2(v1, n + center, v2);
+	sub2(v2, n + center, v3);
+	sub2(v3, n + center, v1);
 
 }
 
 void main() {
 
-    float noiseMean = 0.;
+	float noiseMean = 0.;
 
 	vec3 normal = vec3(0.);
 	for (int i = 0; i < gl_in.length(); i++) {
-        noiseMean += noiseFactor[i];
+		noiseMean += noiseFactor[i];
 		normal += vVert[i].normalInWorld;
 	}
-    noiseMean /= float(gl_in.length());
+	noiseMean /= float(gl_in.length());
 	normal /= gl_in.length();
 
 	oNoiseFactor = noiseMean;

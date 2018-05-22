@@ -12,11 +12,11 @@ flat in int camIndex;
 out vec4 fragColor;
 
 vec3 calcFlatNormal(vec3 p){
-    vec3 dx = dFdx(p);
-    vec3 dy = dFdy(p);
-    vec3 n = normalize(cross(normalize(dx), normalize(dy)));
+	vec3 dx = dFdx(p);
+	vec3 dy = dFdy(p);
+	vec3 n = normalize(cross(normalize(dx), normalize(dy)));
 
-    return n;
+	return n;
 }
 
 void main() {
@@ -55,10 +55,10 @@ void main() {
 		outcol.rgb *= alpha;
 		outcol.a = alpha;
 
-	    TDAlphaTest(alpha);
-	    fragColor = TDOutputSwizzle(outcol);
-	} else {
-		discard;
-	}
+		TDAlphaTest(alpha);
+		fragColor = TDOutputSwizzle(outcol);
+		} else {
+			discard;
+		}
 
-}
+	}

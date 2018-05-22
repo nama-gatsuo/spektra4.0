@@ -5,7 +5,7 @@ layout (max_vertices = 9) out;
 struct Vert {
 	vec4 posInWorld;
 	vec4 color;
-    vec3 normalInWorld;
+	vec3 normalInWorld;
 };
 
 flat in int cameraIndex[];
@@ -36,22 +36,22 @@ void createFace(in vec3 center, ivec2 i) {
 
 void main() {
 
-    float noiseMean = 0.;
+	float noiseMean = 0.;
 	vec3 center = vec3(0.);
 	vec3 normal = vec3(0.);
 	for (int i = 0; i < gl_in.length(); i++) {
-        noiseMean += noiseFactor[i];
+		noiseMean += noiseFactor[i];
 		center += vVert[i].posInWorld.xyz;
 		normal += vVert[i].normalInWorld;
 	}
-    noiseMean /= gl_in.length();
+	noiseMean /= gl_in.length();
 	center /= gl_in.length();
 	normal /= gl_in.length();
 
 	center += normal * noiseMean * 0.4;
 
-    createFace(center, ivec2(0,1));
-    createFace(center, ivec2(1,2));
+	createFace(center, ivec2(0,1));
+	createFace(center, ivec2(1,2));
 	createFace(center, ivec2(2,0));
-    EndPrimitive();
+	EndPrimitive();
 }
